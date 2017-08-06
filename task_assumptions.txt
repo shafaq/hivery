@@ -1,0 +1,34 @@
+Task 1. Given a company, the API needs to return all their employees. Provide the appropriate solution if the company does not have any employees.
+
+Currently API return all the data for the employees. I was not sure what is the expected projection from the data, so currently everything about the employees is returned. 
+
+Task 2. Given 2 people, provide their information (Name, Age, Address, phone) and the list of their friends in common which have brown eyes and are still alive.
+	
+API returns 'list of friends' as the names of common friends which are alive and have brown eyes. Can be easily extended to all the data about the friends.
+
+Task 3. Given 1 people, provide a list of fruits and vegetables they like. This endpoint must respect this interface for the output:
+ {"username": "Ahi", "age": "30", "fruits": ["banana", "apple"], "vegetables": ["beetroot", "lettuce"]}
+
+I was not sure what 'username' means. So currently it is email user name. And since I was a confused that it might be a typo so API also returns name for the person.
+
+This task expected us to classify data. Currently it is "manual". First I found aggregation of all the favouriteFoods and classified like
+
+ 
+    IMPORTANT:
+    ---------
+    found this using db.people.distinct("favouriteFood")
+    Now classifying them:
+    [
+        "beetroot",  --veggie
+        "carrot",   --veggie
+        "celery",   --veggie
+        "cucumber",  --veggie
+        "apple",  --fruit
+        "banana", --fruit
+        "orange",  --fruit
+        "strawberry"  --fruit
+    ]
+ 
+So if a food is vegetable or fruit I am populating one list or another.
+
+
